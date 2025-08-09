@@ -1,13 +1,29 @@
-var jmlAngkot = 10;
-var angkotBeroperasi = 6;
+// membuat object angkot
+var angkot1 = new Angkot('sukma', ['Cicaheum','Cibiru'], [], 0);
+var angkot2 = new Angkot('waty', ['Antapani','Ciroyom'], [], 0);
 
-for (var noAngkot = 1; noAngkot <= jmlAngkot; noAngkot++) {
-    if( noAngkot <=6 && noAngkot !== 5) {
-        console.log('Angkot No. ' + noAngkot + ' beroperasi dengan baik.');
-    }else if (noAngkot === 8 || noAngkot === 10 || noAngkot === 5) {
-        console.log('Angkot No. ' + noAngkot + ' sedang lembur.'); 
-    }else {
-        console.log('Angkot No. ' + noAngkot + ' sedang tidak beroperasi.');
-          
+function Angkot(sopir, trayek, penumpang, kas) {
+    this.sopir = sopir;
+    this.trayek = trayek;
+    this.penumpang = penumpang;
+    this.kas = kas;
+
+    this.penumpangNaik = function (namaPenumpang) {
+        this.penumpang.push(namaPenumpang);
+        return this.penumpang;
+    }
+    this.penumpangTurun = function (namaPenumpang, bayar) {
+        if(this.penumpang.length === 0) {
+            alert('Angkot Masih Kosong!');
+            return false;
+        }        
+        for (var i = 0; i < this.penumpang.length; i++ ) {
+           if( this.penumpang[i] == namaPenumpang) {
+            this.penumpang[i] = undefined;
+            this.kas += bayar;
+            return this.penumpang;
+        }    
     }
 }
+}
+

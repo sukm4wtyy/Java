@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ccc;
+    text-align: center;
+}
+.container {
+    width: 400px;
+    margin: 10px auto;
+    border: 5px solid white;
+    line-height: 0;
+    overflow: auto;
+}
+.thumb {
+    width: 200px;
+    float: left;
+    border: 2px solid white;
+    box-sizing: border-box;
+}
+.thumb:hover {
+    filter: brightness(50%);
+}
+
+.active {
+    filter: brightness(50%);
+}
+
+@keyframes fadeIn {
+    to {
+        filter: brightness(100%);
+    }
+}
+
+.fade {
+    filter: brightness(50%);
+    animation: fadeIn .5s forwards;
+}
